@@ -39,3 +39,4 @@ C:\Checkpoint.NET\CP4_livraria\CP4_livraria\obj\Debug\net8.0\refint\CP4_livraria
 C:\Checkpoint.NET\CP4_livraria\CP4_livraria\obj\Debug\net8.0\CP4_livraria.pdb
 C:\Checkpoint.NET\CP4_livraria\CP4_livraria\obj\Debug\net8.0\CP4_livraria.genruntimeconfig.cache
 C:\Checkpoint.NET\CP4_livraria\CP4_livraria\obj\Debug\net8.0\ref\CP4_livraria.dll
+C:\Checkpoint.NET\CP4_livraria\CP4_livraria\obj\Debug\net8.0\CP4_livraria.sourcelink.json
