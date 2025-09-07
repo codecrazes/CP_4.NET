@@ -15,7 +15,7 @@ namespace BibliotecaMongo.Models
         [BsonElement("AnoPublicacao")]
         public int AnoPublicacao { get; set; }
 
-        [BsonElement("Autores")]
-        public List<Autor> Autores { get; set; } = new List<Autor>();
+        [BsonElement("Autor")]
+        public Autor Autor { get; set; }
     }
 }
