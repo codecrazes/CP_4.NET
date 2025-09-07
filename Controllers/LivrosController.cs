@@ -65,7 +65,7 @@ namespace BibliotecaMongo.Controllers
         public ActionResult<IEnumerable<Livro>> GetByAutor(string nome)
         {
             var livros = _context.Livros
-                .Find(l => l.Autor.Nome.ToLower().Contains(nome.ToLower()))
+                .Find(l => l.Autores.Any(a => a.Nome.ToLower().Contains(nome.ToLower())))
                 .ToList();
 
             if (!livros.Any()) return NotFound(new { message = "Nenhum livro encontrado para este autor" });
@@ -76,18 +76,18 @@ namespace BibliotecaMongo.Controllers
         [HttpPost]
         public ActionResult<Livro> Create([FromBody] LivroDTO dto)
         {
-            if (dto == null || string.IsNullOrEmpty(dto.Titulo))
-                return BadRequest(new { message = "Título do livro é obrigatório" });
+            if (dto == null || string.IsNullOrEmpty(dto.Titulo) || dto.Autores == null || !dto.Autores.Any())
+                return BadRequest(new { message = "Título do livro e pelo menos um autor são obrigatórios" });
 
             var livro = new Livro
             {
                 Titulo = dto.Titulo,
                 AnoPublicacao = dto.AnoPublicacao,
-                Autor = new Autor
+                Autores = dto.Autores.Select(a => new Autor
                 {
-                    Nome = dto.Autor.Nome,
-                    Nacionalidade = dto.Autor.Nacionalidade
-                }
+                    Nome = a.Nome,
+                    Nacionalidade = a.Nacionalidade
+                }).ToList()
             };
 
             _context.Livros.InsertOne(livro);
@@ -103,11 +103,11 @@ namespace BibliotecaMongo.Controllers
 
             livro.Titulo = dto.Titulo;
             livro.AnoPublicacao = dto.AnoPublicacao;
-            livro.Autor = new Autor
+            livro.Autores = dto.Autores.Select(a => new Autor
             {
-                Nome = dto.Autor.Nome,
-                Nacionalidade = dto.Autor.Nacionalidade
-            };
+                Nome = a.Nome,
+                Nacionalidade = a.Nacionalidade
+            }).ToList();
 
             _context.Livros.ReplaceOne(l => l.Id == id, livro);
 
