@@ -61,10 +61,12 @@ POST
 {
   "titulo": "Aprendendo C#",
   "anoPublicacao": 2025,
-  "autor": {
-    "nome": "Caroline Assis",
-    "nacionalidade": "BR"
-  }
+  "autores": [
+    {
+      "nome": "Caroline Assis",
+      "nacionalidade": "BR"
+    }
+  ]
 }
 ```
 ```json
@@ -88,12 +90,14 @@ PUT
 
 ```json
 {
-  "titulo": "Aprendendo C# - Atualizado",
+  "titulo": "Aprendendo JAVA",
   "anoPublicacao": 2025,
-  "autor": {
-    "nome": "Caroline Assis",
-    "nacionalidade": "BR"
-  }
+  "autores": [
+    {
+      "nome": "Enzo de Moura",
+      "nacionalidade": "BR"
+    }
+  ]
 }
 
 ```
