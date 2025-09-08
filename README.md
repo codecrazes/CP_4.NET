@@ -67,6 +67,23 @@ POST
   }
 }
 ```
+```json
+{
+  "titulo": "C# Avançado",
+  "anoPublicacao": 2025,
+  "autores": [
+    {
+      "nome": "Caroline Assis",
+      "nacionalidade": "BR"
+    },
+    {
+      "nome": "Enzo Silva",
+      "nacionalidade": "BR"
+    }
+  ]
+}
+```
+
 PUT
 
 ```json
